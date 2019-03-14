@@ -1,24 +1,54 @@
-# README
+# Nexmo Number Insights with Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails app to demonstrate how to use the Nexmo Number Insights API with Ruby on Rails.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+* [A Nexmo account](https://dashboard.nexmo.com/sign-up)
+* [Ruby 2.5+](https://www.ruby-lang.org/)
+* [Rails 5.2+](http://sinatrarb.com/)
 
-* System dependencies
+## Getting Started
 
-* Configuration
+```sh
+# clone this repository
+git clone git@github.com:Nexmo/nexmo-rails-number-insights.git
+# change to folder
+cd nexmo-rails-number-insights
+# install dependencies
+bundle install
+# copy example .env to actual .env
+cp .env.sample .env
+```
 
-* Database creation
+Next you will need to sign up for a Nexmo account, grabv your API credentials from the API dashboard, register a phone number and put your `api_key` and `api_secret` in the `.env` file.
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+To start your Rails application run the following from the command line:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+# Set up the database
+rake db:migrate
+# Initialize the server
+rails s
+```
 
-* Deployment instructions
+You can now visit [localhost:3000/number_insights](localhost:3000/number_insights) in your web browser.
 
-* ...
+You can enter any number from any country in the number input and choose any of the Number Insight options:
+
+* Basic
+* Standard
+* Advanced
+* Advanced Asynchronous
+
+More information on each of these can be found on [Nexmo Developer](https://developer.nexmo.com/api/number-insight).
+
+Note: If you choose the Advanced Asynchronous option you need to define a callback URL in the application. You can do so in the `number_insights_controller.rb` file on line 2 inside the `BASE_URL` variable. This URL needs to be publicly accessible. Tools like [ngrok](https://ngrok.com/) give you a URL that can be accessed externally.
+
+As this is a simple starter app, this app does not validate or store the responses.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
