@@ -34,7 +34,7 @@ rake db:migrate
 rails s
 ```
 
-You can now visit [localhost:3000/number_insights](localhost:3000/number_insights) in your web browser.
+You can now visit [localhost:3000/number_insights](http://localhost:3000/number_insights) in your web browser.
 
 You can enter any number from any country in the number input and choose any of the Number Insight options:
 
