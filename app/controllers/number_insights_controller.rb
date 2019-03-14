@@ -19,18 +19,6 @@ class NumberInsightsController < ApplicationController
         render :show
     end
 
-    def basic
-        render :basic
-    end
-
-    def standard
-        render :standard
-    end
-
-    def advanced
-        render :advanced
-    end
-
     private
 
     def nexmo
