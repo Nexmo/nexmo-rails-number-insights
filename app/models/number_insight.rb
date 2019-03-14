@@ -1,0 +1,2 @@
+class NumberInsight < ApplicationRecord
+end
