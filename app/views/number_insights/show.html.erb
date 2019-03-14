@@ -2,24 +2,22 @@
 <h3>Number: <%= params[:number] %></h3>
 
 <table>
-    <th>
+    <tr>
+        <% @data.each do |key, value| %>
+            <th><%= key %></th>
+        <% end %>    
+    </tr>
         <tr>
-            <% @data.each do |k, v| %>
-                <th><%= k %></th>
-            <% end %>    
-        </tr>
-         <tr>
-            <% @data.each do |k, v| %>
-                <% if v.class == Nexmo::Entity %>
-                    <td>
-                        <% v.to_h.each do |subkey, subvalue| %>
-                            <%= subvalue %>
-                        <% end %>
-                    </td>
-                <% else %>
-                    <td><%= v %></td>
-                <% end %>
+        <% @data.each do |k, v| %>
+            <% if v.class == Nexmo::Entity %>
+                <td>
+                    <% v.to_h.each do |subkey, subvalue| %>
+                        <%= subvalue %>
+                    <% end %>
+                </td>
+            <% else %>
+                <td><%= v %></td>
             <% end %>
-        </tr>
-    </th>
+        <% end %>
+    </tr>
 </table>
