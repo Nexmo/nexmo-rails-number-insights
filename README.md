@@ -41,11 +41,8 @@ You can enter any number from any country in the number input and choose any of 
 * Basic
 * Standard
 * Advanced
-* Advanced Asynchronous
 
 More information on each of these can be found on [Nexmo Developer](https://developer.nexmo.com/api/number-insight).
-
-Note: If you choose the Advanced Asynchronous option you need to define a callback URL in the application. You can do so in the `number_insights_controller.rb` file on line 2 inside the `BASE_URL` variable. This URL needs to be publicly accessible. Tools like [ngrok](https://ngrok.com/) give you a URL that can be accessed externally.
 
 As this is a simple starter app, this app does not validate or store the responses.
 

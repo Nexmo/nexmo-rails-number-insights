@@ -1,6 +1,6 @@
 <h2>Nexmo Number Insights with Rails</h2>
 
-<%= form_tag('/number_insights') do %>
+<%= form_tag('/number_insights/new') do %>
     <%= label_tag(:number, "Phone Number:") %>
     <%= text_field_tag(:number) %>
     <br /><br />
@@ -12,9 +12,6 @@
     <br />
     <%= radio_button_tag(:type, "advanced") %>
     <%= label_tag(:type_advanced, "Advanced") %>
-    <br />
-    <%= radio_button_tag(:type, "advanced_async") %>
-    <%= label_tag(:type_async, "Advanced Async") %>
     <br /><br />
     <%= submit_tag("Search") %>
 <% end %>

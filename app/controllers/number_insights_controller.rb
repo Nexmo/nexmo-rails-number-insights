@@ -1,6 +1,5 @@
 class NumberInsightsController < ApplicationController
-
-    BASE_URL = ''
+    skip_before_action :verify_authenticity_token, only: :event
 
     def index
         render :index
@@ -10,11 +9,6 @@ class NumberInsightsController < ApplicationController
     end
 
     def create
-        insight_type(params)
-        render :show
-    end
-
-    def event
         insight_type(params)
         render :show
     end
@@ -35,12 +29,9 @@ class NumberInsightsController < ApplicationController
             @data = nexmo.number_insight.standard(number: params[:number])
         elsif params[:type] == 'advanced'
             @data = nexmo.number_insight.advanced(number: params[:number])
-        elsif params[:type] == 'advanced_async'
-            @data = nexmo.number_insight.advanced_async(number: params[:number], callback: "#{BASE_URL}/webhook/event")
         else
             flash[:failure] = "Please try to submit the form again, something went wrong."
             redirect_to '/number_insights'
-            return
         end
         @data = @data.to_h
     end

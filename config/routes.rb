@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :number_insights, only: [:index, :show]
+  get '/number_insights', to: 'number_insights#index'
 
-  post '/number_insights', to: 'number_insights#create'
+  get '/number_insights/show', to: 'number_insights#show'
 
-  post '/webhook/event', to: 'number_insights#event'
+  post '/number_insights/new', to: 'number_insights#create'
 
 end
